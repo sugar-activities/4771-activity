@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html data-ng-app="drawApp">
+  <head>
+  <style>
+
+
+
+</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Paint App</title>
+
+    
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+   
+
+    <!-- your app's js -->
+    <script src="angular1.js"></script>
+     <script src="js/app.js"></script>	
+
+	 <link rel="stylesheet" href="1.css">
+    <script src="1.js"></script>
+  <script src="2.js"></script>
+
+
+  </head>
+  <body data-ng-controller="drawCtrl" data-ng-init="init()">
+
+    <ion-pane>
+      <ion-content>
+<div class="container">
+
+<div class="panel-group" id="accordion">
+   <div class="panel panel-info">
+      <div class="panel-heading">
+         <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" 
+               href="#collapseOne">
+            TOGGLE TOOLBAR
+            </a>
+		<span class="pull-right"><a
+               href="http://smartysneha.blogspot.in">
+            Sneha Mohanty</a></span>
+         </h4>
+	
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in">
+         <div class="panel-body">
+          <div id="tools">
+      <span><input type="radio" name="tool" value="pencil" data-ng-model="tool"> Pencil</span>
+      <span><input type="radio" name="tool" value="line" data-ng-model="tool"> Line</span>
+      <span><input type="radio" name="tool" value="rectangle" data-ng-model="tool"> Rectangle</span>
+	    <span><input type="radio" name="tool" value="circle" data-ng-model="tool"> Circle</span>
+	 <span><input type="radio" name="tool" value="triangle" data-ng-model="tool">RightTriangle</span>
+	 	 <span><input type="radio" name="tool" value="semi" data-ng-model="tool">UpSemiCircle</span>
+		 <span><input type="radio" name="tool" value="usemi" data-ng-model="tool">DownSemiCircle</span>
+		 		 <span><input type="radio" name="tool" value="pent" data-ng-model="tool">Pentagon</span>
+						 <span><input type="radio" name="tool" value="stroke1" data-ng-model="tool">RandomCircles</span>
+				<span><input type="radio" name="tool" value="stroke2" data-ng-model="tool">Stars</span>
+
+ <span><input type="radio" name="tool" value="stroke4" data-ng-model="tool">Sketcher</span>
+<span><input type="radio" name="tool" value="pixel" data-ng-model="tool">Pixel</span><br>
+<span><input type="radio" name="tool" value="gl" data-ng-model="tool">GreenLine</span>
+<span><input type="radio" name="tool" value="fur" data-ng-model="tool">Black Fur</span>
+<span><input type="radio" name="tool" value="blob" data-ng-model="tool">Airbrush</span>
+		 <span><input type="radio" name="tool" value="tp" data-ng-model="tool">Erase Portions</span>
+      <span><button class="undo" data-ng-click="undo()">Undo</button></span>
+	
+      <span><button class="undo" data-ng-click="save()">Save</button></span>
+<span><button data-ng-click="draw('repeat')"><img src="leopard.jpg" id="lamp" width="32" height="32"></button></span>
+<span><button  data-ng-click="draw1('repeat')"><img src="stars.png" id="stars" width="32" height="32"></button></span>
+<span><button data-ng-click="draw2('repeat')"><img src="dots.png" id="dots" width="32" height="32"></button></span>
+<span><button data-ng-click="draw3('repeat')"><img src="patt.jpg" id="patt" width="32" height="32"></button></span>
+<span><button data-ng-click="draw4('repeat')"><img src="color.png" id="color" width="32" height="32"></button></span>
+	
+	
+      <input ng-model="photo"
+           onchange="angular.element(this).scope().file_changed(this)"
+           type="file" accept="image/*" /> 		   
+
+	
+    </div>
+	
+
+     
+
+	 <div id="fillOptions" data-ng-show="isToolNameSelected('rectangle', 'circle','triangle','semi','usemi','pent','stroke2')">
+        Fill shape?
+        <input type="checkbox" data-ng-model="fillShape">
+      </div>
+
+    
+<span><label class="md-only" for="st">Stroke</label>
+		<input type="color" ng-model="st" id="st" >{{st}}
+<br />
+<label class="md-only" for="st">Fill</label>
+		<input type="color" ng-model="fl" id="fl" >{{fl}}
+<br />
+		<label class="md-only" for="stw">Stroke/Eraser width</label>
+		<input type="range" ng-model="stw" min="1" max="30" id="stw" >{{stw}}
+  
+  </div>
+
+
+         </div>
+      </div>
+   
+
+
+
+
+     <div class="container-fluid" id="parent" style="background-color:lavender; border:2px solid #cfcfcf;">
+ 
+  <canvas id="canvas" style="border:1px solid black;height:500px;">
+      Your browser does not support the canvas element.
+    </canvas>
+
+   
+	</div>
+
+    
+
+    
+
+    </div>
+	
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var canvas = document.getElementById("canvas");
+  canvas.width = $("#parent").width();
+  canvas.height = $("#parent").height();
+});
+
+
+   $(function () { $('#collapseOne').collapse('hide')});
+</script>  
+
+
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>

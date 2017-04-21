@@ -1,0 +1,49 @@
+.undo {
+				margin-top: 20px;
+				background-color: orange;
+				color: white;
+				border: none;
+				padding: 10px;
+				border-radius: 4px;
+			}
+
+			body {
+				background-color: #efeeee;
+			}
+			.container {
+				
+			}
+
+
+	* {
+	margin: 0px;
+	padding: 0px;
+	}
+
+#canvas{
+background-color:white;
+}
+
+
+
+#tools {
+	padding: 5px;
+	border-top: 1px solid white;
+	}
+
+#tools span {
+	margin-right: 10px;
+	}
+
+#tools div {
+	float: right;
+	}
+
+canvas:first-child {
+				box-shadow: 2px 2px 8px rgba(0,0,0,0.1), -1px -1px 4px rgba(0,0,0,0.1);
+				-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.1), -1px -1px 4px rgba(0,0,0,0.1);
+			}
+
+
+
+

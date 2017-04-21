@@ -1,0 +1,6 @@
+[Activity]
+name = cordova_Angular_paint
+activity_version = 1
+bundle_id = io.cordova.Angular_paint
+exec = sugar-activity-web
+icon = activity-icon
